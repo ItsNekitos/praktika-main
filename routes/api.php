@@ -15,6 +15,6 @@ Route::middleware(['auth:sanctum'])->group(function(){
 });
 Route::get("/post/{post}", [RecipeController::class, "post"]);
 Route::get("/postsUser/{user}", [RecipeController::class, "postsUser"]);
-Route::get("/postsHome", [RecipeController::class, "postsHome"]);
+Route::get("/recipesHome", [RecipeController::class, "recipesHome"]);
 Route::post("/register", [AuthController::class, "register"]);
 Route::post("/login", [AuthController::class, "login"]);

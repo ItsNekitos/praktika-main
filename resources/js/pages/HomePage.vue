@@ -2,7 +2,7 @@
     <!-- Main -->
     <div id="main">
         <!-- Post -->
-        <template v-for="recipe in recipes.data">
+        <template v-for="recipe in recipes">
             <PostComponent :recipe="recipe" :changePage="changePage" :PUBLIC="PUBLIC" :likeArray="likeArray" />
         </template>
 
@@ -58,8 +58,8 @@ export default {
         this.recipesHome();
     },
     methods: {
-        recipesHome(page = 1) {
-            this.server('recipesHome/?page=' + page, 'GET', null, this.user.id)
+        recipesHome() {
+            this.server('recipesHome', 'GET', null, this.user.id)
                 .then((result) => {
                     this.recipes = result.recipes;
                 })
