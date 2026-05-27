@@ -1,18 +1,30 @@
 <template>
     <!-- Main -->
     <div id="main">
-        <!-- Post -->
-        <template v-for="recipe in recipes">
-            <PostComponent :recipe="recipe" :changePage="changePage" :PUBLIC="PUBLIC" :likeArray="likeArray" />
-        </template>
+        <div class="sidediv"></div>
+        <div id="mainblock">
+            <section id="sidebar">
+                <!-- Intro -->
+                <section id="intro">
+                    <header>
+                        <p>Фильтрация</p>
+                    </header>
+                </section>
+            </section>
+            <!-- Post -->
+            <div id="recipeslist">
+                <template v-for="recipe in recipes">
+                    <PostComponent :recipe="recipe" :changePage="changePage" :PUBLIC="PUBLIC" :likeArray="likeArray" />
+                </template>
+            </div>
 
-        <!-- Pagination -->
-        <!-- <ul class="actions pagination">
+            <!-- Pagination -->
+            <!-- <ul class="actions pagination">
             <li>
                 <a
                     href="#"
-                    @click.prevent="postsHome(posts.current_page - 1)"
-                    :class="{ disabled: posts.current_page == 1 }"
+                    @click.prevent="recipesHome(recipes.current_page - 1)"
+                    :class="{ disabled: recipes.current_page == 1 }"
                     class="button big previous"
                     >Previous Page</a
                 >
@@ -20,23 +32,16 @@
             <li>
                 <a
                     href="#"
-                    @click.prevent="postsHome(posts.current_page + 1)"
-                    :class="{ disabled: posts.current_page == posts.last_page }"
+                    @click.prevent="recipesHome(recipes.current_page + 1)"
+                    :class="{ disabled: recipes.current_page == recipes.last_page }"
                     class="button big next"
                     >Next Page</a
                 >
             </li>
         </ul> -->
+        </div>
+        <div class="sidediv"></div>
     </div>
-
-    <section id="sidebar">
-        <!-- Intro -->
-        <section id="intro">
-            <header>
-                <p>Фильтрация</p>
-            </header>
-        </section>
-    </section>
 </template>
 <script>
 import PostComponent from '@/components/PostComponent.vue';

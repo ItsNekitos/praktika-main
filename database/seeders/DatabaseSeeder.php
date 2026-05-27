@@ -32,7 +32,15 @@ class DatabaseSeeder extends Seeder
             "description"=>'ммм вкусный борщик',
             "cooktime"=>'60',
             "difficulty"=>'Средне',
-            "photo"=>'123',
+            "photo"=>'/images/borsh.jpg',
+        ]);
+        Recipe::create([
+            "user_id"=>'1',
+            "name"=>'Соляночка',
+            "description"=>'ммм вкусный соляночка',
+            "cooktime"=>'30',
+            "difficulty"=>'Легко',
+            "photo"=>'/images/solyanka.jpg',
         ]);
     }
 }
