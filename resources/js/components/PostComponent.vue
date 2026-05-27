@@ -14,7 +14,7 @@
             </div>
         </header>
         <footer style="padding-left: 10px;">
-            <a href="#" style="width: 100px; height: 30px; display: flex; align-items: center; justify-content: center;" @click.prevent="changePage('SinglePage', recipe.id)" class="button big">Посмотреть</a>
+            <a href="#" style="width: 100px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 5px;" @click.prevent="changePage('SinglePage', recipe.id)" class="button big">Посмотреть</a>
         </footer>
     </article>
 </template>
