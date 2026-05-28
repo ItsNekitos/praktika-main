@@ -11,4 +11,8 @@ class RecipeStep extends Model
         'description',
         'image',
     ];
+    public function recipe()
+    {
+        return $this->belongsTo(Recipe::class);
+    }
 }

@@ -10,4 +10,8 @@ class Category extends Model
         'name',
         'description',
     ];
+    public function recipe()
+    {
+        return $this->hasMany(Recipe::class);
+    }
 }

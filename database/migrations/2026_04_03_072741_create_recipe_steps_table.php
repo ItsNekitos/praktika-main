@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('recipesteps', function (Blueprint $table) {
+        Schema::create('recipe_steps', function (Blueprint $table) {
             $table->id();
             $table->foreignId("recipe_id")->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->integer('stepnumber');
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('recipesteps');
+        Schema::dropIfExists('recipe_steps');
     }
 };

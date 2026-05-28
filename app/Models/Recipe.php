@@ -21,6 +21,10 @@ class Recipe extends Authenticatable
     {
         return $this->belongsTo(Category::class);
     }
+    public function recipe_step()
+    {
+        return $this->hasMany(RecipeStep::class);
+    }
     protected $fillable = [
         'name',
         'description',

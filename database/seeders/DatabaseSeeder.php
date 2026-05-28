@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Recipe;
+use App\Models\RecipeStep;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -74,6 +75,12 @@ class DatabaseSeeder extends Seeder
             "cooktime"=>'30',
             "difficulty"=>'Легко',
             "photo"=>'/images/salatikburmaldatik.jpg',
+        ]);
+        RecipeStep::create([
+            "recipe_id"=>'1',
+            "stepnumber"=>'1',
+            "description"=>'1',
+            "image"=>'/images/borsh.jpg',
         ]);
     }
 }
