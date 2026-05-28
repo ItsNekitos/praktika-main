@@ -30,8 +30,8 @@ class RecipeController extends Controller
         $post->save();
         return response()->json(["id"=>$post->id]);
     }
-    public function post($recipe){
-        $recipe = Recipe::with('user')->findOrFail($recipe);
+    public function recipe($recipe){
+        $recipe = Recipe::findOrFail($recipe);
         $isAdmin = false;
         if(Auth::check()){
             if(Auth::user()->id==$recipe->user_id||Auth::user()->role=='admin'){

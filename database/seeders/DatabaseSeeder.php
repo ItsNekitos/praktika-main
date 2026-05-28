@@ -52,8 +52,8 @@ class DatabaseSeeder extends Seeder
         ]);
         Recipe::create([
             "user_id"=>'1',
-            "name"=>'Соляночка',
-            "description"=>'ммм вкусный соляночка',
+            "name"=>'Салатик бурмалдатик',
+            "description"=>'ммм вкусный бурмалдатик',
             "cooktime"=>'30',
             "difficulty"=>'Легко',
             "photo"=>'/images/salatikburmaldatik.jpg',
