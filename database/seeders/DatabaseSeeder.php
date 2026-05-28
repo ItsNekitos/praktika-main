@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\Recipe;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -26,8 +27,21 @@ class DatabaseSeeder extends Seeder
             "avatar"=>'sdfsdf',
             "role"=>'admin',
         ]);
+        Category::create([
+            "name"=>'Завтрак',
+            "description"=>'Завтрак',
+        ]);
+        Category::create([
+            "name"=>'Обед',
+            "description"=>'Обед',
+        ]);
+        Category::create([
+            "name"=>'Ужин',
+            "description"=>'Ужин',
+        ]);
         Recipe::create([
             "user_id"=>'1',
+            "category_id"=>'2',
             "name"=>'Борщ',
             "description"=>'ммм вкусный борщик',
             "cooktime"=>'60',
@@ -36,6 +50,7 @@ class DatabaseSeeder extends Seeder
         ]);
         Recipe::create([
             "user_id"=>'1',
+            "category_id"=>'2',
             "name"=>'Соляночка',
             "description"=>'ммм вкусный соляночка',
             "cooktime"=>'30',
@@ -44,6 +59,7 @@ class DatabaseSeeder extends Seeder
         ]);
         Recipe::create([
             "user_id"=>'1',
+            "category_id"=>'2',
             "name"=>'Чебречки',
             "description"=>'ммм вкусный чебрек',
             "cooktime"=>'10',
@@ -52,7 +68,8 @@ class DatabaseSeeder extends Seeder
         ]);
         Recipe::create([
             "user_id"=>'1',
-            "name"=>'Салатик бурмалдатик',
+            "category_id"=>'1',
+            "name"=>'Салатик',
             "description"=>'ммм вкусный бурмалдатик',
             "cooktime"=>'30',
             "difficulty"=>'Легко',

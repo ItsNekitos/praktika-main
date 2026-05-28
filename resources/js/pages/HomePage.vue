@@ -3,19 +3,32 @@
     <div id="main">
         <div class="sidediv"></div>
         <div id="mainblock">
-            <section id="sidebar">
-                <!-- Intro -->
-                <section id="intro">
-                    <header>
-                        <p>Фильтрация</p>
-                    </header>
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 50px;">
+                <h1>Рецепты</h1>
+            </div>
+            <div id="recipfilt">
+                <section id="sidebar">
+                    <!-- Intro -->
+                    <section id="intro">
+                        <header>
+                            <h1>Фильтрация</h1>
+                        </header>
+                        <div>
+                            <h4>Категория</h4>
+                        </div>
+                        <div>
+                            <h4>Время</h4>
+                        </div>
+                        <div>
+                            <h4>Сложность</h4>
+                        </div>
+                    </section>
                 </section>
-            </section>
-            <!-- Post -->
-            <div id="recipeslist">
-                <template v-for="recipe in recipes">
-                    <PostComponent :recipe="recipe" :changePage="changePage" :PUBLIC="PUBLIC" :likeArray="likeArray" />
-                </template>
+                <div id="recipeslist">
+                    <template v-for="recipe in recipes">
+                        <PostComponent :recipe="recipe" :changePage="changePage" :PUBLIC="PUBLIC" :likeArray="likeArray" />
+                    </template>
+                </div>
             </div>
 
             <!-- Pagination -->

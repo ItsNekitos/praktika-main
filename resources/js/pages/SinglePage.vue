@@ -1,14 +1,15 @@
 <template>
     <!-- Main -->
     <div id="main" v-if="recipe">
-        <!-- Post -->
         <article class="post">
             <header>
                 <div class="title">
                     <h2>
                         <a href="#">{{ recipe.name }}</a>
                     </h2>
-                    <p>{{ recipe.difficulty }}</p>
+                    <p v-if="recipe.difficulty == 'Средне'" style="color: white; background-color: rgb(255, 155, 0); width: 25%; border-radius: 5px; display: flex; justify-content: center; margin-top: 5px;">{{ recipe.difficulty }}</p>
+                    <p v-if="recipe.difficulty == 'Легко'" style="color: white; background-color: rgb(55, 255, 55); width: 20%; border-radius: 5px; display: flex; justify-content: center;">{{ recipe.difficulty }}</p>
+                    <p v-if="recipe.difficulty == 'Сложно'" style="color: white; background-color: rgb(255, 55, 55); width: 25%; border-radius: 5px; display: flex; justify-content: center;">{{ recipe.difficulty }}</p>
                 </div>
             </header>
             <span class="image featured"><img :src="PUBLIC + recipe.photo" alt="" /></span>
@@ -26,6 +27,12 @@
                 </ul>
             </footer>
         </article>
+
+
+
+        <div id="steps">
+
+        </div>
 
 
     </div>
