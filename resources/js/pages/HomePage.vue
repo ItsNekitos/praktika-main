@@ -15,6 +15,9 @@
                         </header>
                         <div>
                             <h4>Категория</h4>
+                            <div v-for="category in categories">
+                                <a href="#" @click.prevent="catalogFilter(category.id)">{{ category.name }}</a>
+                            </div>
                         </div>
                         <div>
                             <h4>Время</h4>
@@ -26,7 +29,7 @@
                 </section>
                 <div id="recipeslist">
                     <template v-for="recipe in recipes">
-                        <PostComponent :recipe="recipe" :changePage="changePage" :PUBLIC="PUBLIC" :likeArray="likeArray" />
+                        <PostComponent :recipe="recipe" :changePage="changePage" :PUBLIC="PUBLIC"/>
                     </template>
                 </div>
             </div>
@@ -70,6 +73,7 @@ export default {
     data() {
         return {
             recipes: [],
+            categories: [],
         };
     },
     mounted() {
@@ -77,9 +81,19 @@ export default {
     },
     methods: {
         recipesHome() {
-            this.server('recipesHome', 'GET', null, this.user.id)
+            this.server('recipesHome', 'GET', null)
                 .then((result) => {
                     this.recipes = result.recipes;
+                    console.log(result);
+                    this.categories = result.categories;
+                })
+                .catch((error) => console.log('error', error));
+        },
+        catalogFilter(id) {
+            this.server('catalogFilter/' + id, 'GET', null)
+                .then((result) => {
+                    this.recipes = result.recipes;
+                    this.categories = result.categories;
                 })
                 .catch((error) => console.log('error', error));
         },

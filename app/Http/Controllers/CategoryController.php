@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use App\Models\Recipe;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -19,9 +21,15 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function catalogFilter(Request $request, Category $category)
     {
-        //
+        $sortBy = ['created_at', 'desc'];
+        if ($request->input('sort')){
+            $sortBy = explode('|', $request->input('sort'));
+        }
+        $recipe = Recipe::where("category", $category->name)->orderBy($sortBy[0], $sortBy[1]);
+        $categories = Category::all();
+        return ["recipes"=>$recipe, "categories"=>$categories];
     }
 
     /**

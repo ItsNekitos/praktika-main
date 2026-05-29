@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -19,3 +20,4 @@ Route::get("/postsUser/{user}", [RecipeController::class, "postsUser"]);
 Route::get("/recipesHome", [RecipeController::class, "recipesHome"]);
 Route::post("/register", [AuthController::class, "register"]);
 Route::post("/login", [AuthController::class, "login"]);
+Route::get("/catalogFilter/{category}", [CategoryController::class, "catalogFilter"]);

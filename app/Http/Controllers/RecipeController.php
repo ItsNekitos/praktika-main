@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RecipeAddRequest;
 use App\Http\Requests\RecipeEditRequest;
 use App\Http\Requests\UserLoginRequest;
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Recipe;
@@ -53,10 +54,9 @@ class RecipeController extends Controller
         return response()->json(["id"=>$post->id]);
     }
     public function postsUser(User $user){
-        return Recipe::where("user_id",$user->id)->with("user")->withCount("comments","likes")->get();
+        return Recipe::where("user_id",$user->id)->get();
     }
     public function recipesHome(){
-        $recipes = Recipe::all();
-        return ["recipes"=>$recipes];
+        return response()->json(["recipes"=>Recipe::with('category'), "categories"=>Category::all()]);
     }
 }

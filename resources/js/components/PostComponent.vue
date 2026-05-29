@@ -11,6 +11,7 @@
                 <p v-if="recipe.difficulty == 'Сложно'" style="color: white; background-color: rgb(255, 55, 55); width: 25%; border-radius: 5px; display: flex; justify-content: center;">{{ recipe.difficulty }}</p>
                 <p style="font-size: 16px; color: rgb(125, 125, 125); margin-top: 5px;">{{ recipe.cooktime }} мин.</p>
                 <p style="margin-bottom: 10px;">{{ recipe.description }}</p>
+                <!-- <p>{{ recipe.category.name }}</p> -->
             </div>
         </header>
         <footer style="padding-left: 10px;">

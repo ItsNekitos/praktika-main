@@ -19,7 +19,7 @@ class Recipe extends Authenticatable
     }
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasOne(Category::class);
     }
     public function recipe_step()
     {
